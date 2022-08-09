@@ -8,12 +8,20 @@
     <title>Aboba</title>
     <script src="script.js" defer></script>
     <style>
-        .left{
+        .data {
+            padding: 10px;
+            margin: 20px;
+            border: 2px black solid;
+        }
+
+        .left {
             margin-right: 150px;
         }
-        .wrapper{
+
+        .wrapper {
             display: flex;
         }
+
         table,
         tr,
         td,
@@ -33,8 +41,8 @@
 
         #btn {
             margin-top: 10px;
-            margin-left: 80px;
-            margin-right: 80px;
+            margin-left: 40px;
+            margin-right: 40px;
         }
     </style>
 </head>
@@ -43,22 +51,26 @@
     <div class="container">
         <div class="wrapper">
             <div class="left">
-                
+
             </div>
             <div class="right">
-                <input type="text" placeholder="id"><input type="text" placeholder="книга"><input type="text"
-                    placeholder="автор"><input type="text" placeholder="Дата"> <button>Создать</button><br>
-                <input type="text" placeholder="id"><input type="text" placeholder="книга"><input type="text"
-                    placeholder="автор"><input type="text" placeholder="Дата"> <button>Изменить</button> <br>
-                <input type="text" placeholder="id"> <button>Удалить</button> <br><br><br><br><br>
-                <input type="text" placeholder="id"><input type="text" placeholder="книга"><input type="text"
-                    placeholder="автор"><input type="text" placeholder="Дата"> <br>
-                <button id="btn" class="search_">Найти</button><button id="btn" class="search_">Найти</button><button
-                    id="btn" class="search_">Найти</button><button id="btn" class="search_">Найти</button>
+                <input type="text" id="create_book_id" placeholder="id"><input type="text" id="create_book_name" placeholder="книга"><input type="text"
+                id="create_book_author" placeholder="автор"><input type="text" id="create_book_year" placeholder="Дата"> <button class="create_book">Создать</button><br>
+
+                <input type="text" id="update_book_id" placeholder="id"><input type="text" id="update_book_name" placeholder="книга"><input type="text"
+                    placeholder="автор" id="update_book_author"><input type="text" placeholder="Дата" id="update_book_year"> <button class="update_book">Изменить</button> <br>
+
+                <input type="text" id="delete_book_id" placeholder="id"> <button class="delete_book">Удалить</button> <br><br><br>
+
+                <input type="text" id="search_book_id" placeholder="id"><input type="text" id="search_book_name" placeholder="книга"><input type="text"
+                id="search_book_author" placeholder="автор"><input type="text" id="search_book_year" placeholder="Дата"> <br>
+                <button id="btn" class="search_book_id">Найти по id</button><button id="btn" class="search_book_name">Найти о названию</button><button
+                    id="btn" class="search_book_author">Найти по автору</button><button id="btn" class="search_book_year">Найти по году издания</button>
+
+                <button class="search_all_books">Отобразить всё</button>
             </div>
         </div>
         <br><br><br><br>
-
     </div>
 </body>
 
