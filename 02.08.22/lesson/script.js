@@ -102,7 +102,7 @@ function create(id, author, name, year) {
         }
     });
     if (id_check) {
-        console.log("Такая книга уже есть!");
+        alert("Такая книга уже есть!");
     } else {
         books.push({
             "id": id,
@@ -126,7 +126,7 @@ function search_by_id(id) {
         }
     });
     if (id_check === false) {
-        console.log("Книги с данным идентификатором не существует!");
+        alert("Книги с данным идентификатором не существует!");
     } else {
         console.log("Работаем....");
         let collectionBooks = [];
@@ -150,7 +150,7 @@ function search_by_name(name) {
         }
     });
     if (name_check === false) {
-        console.log("Книги с данным именем не существует!");
+        alert("Книги с данным именем не существует!");
     } else {
         console.log("Работаем....");
         let collectionBooks = [];
@@ -175,7 +175,7 @@ function search_by_author(author) {
         }
     });
     if (author_check === false) {
-        console.log("Книги с данным автором не существует!");
+        alert("Книги с данным автором не существует!");
     } else {
         console.log("Работаем....");
         let collectionBooks = [];
@@ -199,7 +199,7 @@ function search_by_year(year) {
         }
     });
     if (year_check === false) {
-        console.log("Книги с данным годом не существует!");
+        alert("Книги с данным годом не существует!");
     } else {
         console.log("Работаем....");
         let collectionBooks = [];
@@ -224,7 +224,7 @@ function deleteBook(id) {
         }
     });
     if (id_check === false) {
-        console.log("Книга с данным id не существует!");
+        alert("Книга с данным id не существует!");
     } else {
         books.forEach(function (deletingBook, index) {
             if (deletingBook.id == id) {
@@ -246,7 +246,7 @@ function updateBook(id, author, name, year) {
         }
     });
     if (id_check === false) {
-        console.log("Книги с данным идентификатором не существует!");
+        alert("Книги с данным идентификатором не существует!");
     } else {
         deleteBook(id);
         create(id, author, name, year);
