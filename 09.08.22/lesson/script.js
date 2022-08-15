@@ -44,10 +44,11 @@ let people = [
     { name: "Ашот", age: 19 }
 ];
 
-people.sort((a,b) => {
-    let age =  a.age > b.age ? 1 : -1;
-    let name = a.name < b.name ? -1 : 1;
-    console.log(age + name);
-    return age - name;
-});
+// people.sort((a, b) => {
+//     if (a.age == b.age) {
+//         return a.name < b.name ? -1 : 1
+//     } else {
+//         return a.age > b.age ? -1 : 1
+//     }
+// });
 console.log(people);
