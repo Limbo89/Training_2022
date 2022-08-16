@@ -25,6 +25,6 @@ function assignNewCard(card) {
     let newCard = JSON.parse(JSON.stringify(newCard));
     cards.push(newCard);
 }
-assignNewCard(clone);
+assignNewCard(newCard);
 newCard.content.title = 'test3';
 console.log(cards);
