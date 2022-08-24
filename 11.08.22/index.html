@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ruNS</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="scripts/script.js" defer></script>
     <style>
         body {
             background-color: rgb(223, 223, 223);
@@ -37,13 +43,15 @@
             font-size: 20px;
             color: red;
         }
-    </style>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+        .card-image>img {
+            width: 295px;
+            height: 400px;
+        }
+        i{
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,77 +63,24 @@
                 <ul class="menu">
                     <li>Сортировать по:<i style="font-size: 20px; visibility: hidden;"
                             class="material-icons">arrow_drop_down</i></li>
-                    <li>Дате<i style="font-size: 20px;" class="material-icons">arrow_drop_down</i></li>
-                    <li>Алфавиту<i style="font-size: 20px;" class="material-icons">arrow_drop_down</i></li>
-                    <li>Популярности<i style="font-size: 20px;" class="material-icons">arrow_drop_down</i></li>
-                    <li>Цене<i style="font-size: 20px;" class="material-icons">arrow_drop_down</i></li>
+                    <li>Дате<i style="font-size: 20px;" id="date_up" class="material-icons">arrow_drop_down</i><i
+                            style="font-size: 20px;" id="date_down" class="material-icons">arrow_drop_up</i></li>
+                    <li>Алфавиту<i id="alphabet_up" style="font-size: 20px;" class="material-icons">arrow_drop_down</i>
+                        <i id="alphabet_down" style="font-size: 20px;" class="material-icons">arrow_drop_up</i>
+                    </li>
+                    <li>Популярности<i style="font-size: 20px;" id="popular_up"
+                            class="material-icons">arrow_drop_down</i><i id="popular_down" style="font-size: 20px;"
+                            class="material-icons">arrow_drop_up</i></li>
+                    <li>Цене<i style="font-size: 20px;" id="cost_up" class="material-icons">arrow_drop_down</i><i
+                            id="cost_down" style="font-size: 20px;" class="material-icons">arrow_drop_up</i></li>
+                    <a class="waves-effect #fbc02d yellow darken-2 btn" id="delete_filters">Сбросить фильтры</a>
                 </ul>
             </div>
         </div>
-        <h5 align="center">По вашему запросу найдено - 749 шт.</h6>
+        <h5 align="center" id="number_of_elements">По вашему запросу найдено - 749 шт.</h6>
             <div class="row">
                 <div class="cards col s8 offset-s1">
-                    <div class="row">
-                        <div class="col s12 m3">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="/11.08.22/images/77b5343e97b33089fd9214c71934095c.jpg">
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                            class="material-icons">favorite</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p class="name">Название:Cyberpunk 2077</p>
-                                    <p class="price">Цена: 2563</p>
-                                    <p class="description">Описание: aboba abob aabobaa bobaabo baaboba abob aaboba </p>
-                                    <a class="waves-effect #fbc02d yellow darken-2 btn">Продать душу дьяволу</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m3">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="/11.08.22/images/77b5343e97b33089fd9214c71934095c.jpg">
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                            class="material-icons">favorite</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p class="name">Название:Cyberpunk 2077</p>
-                                    <p class="price">Цена: 2563</p>
-                                    <p class="description">Описание: aboba abob aabobaa bobaabo baaboba abob aaboba </p>
-                                    <a class="waves-effect #fbc02d yellow darken-2 btn">Продать душу дьяволу</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m3">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="/11.08.22/images/77b5343e97b33089fd9214c71934095c.jpg">
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                            class="material-icons">favorite</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p class="name">Название:Cyberpunk 2077</p>
-                                    <p class="price">Цена: 2563</p>
-                                    <p class="description">Описание: aboba abob aabobaa bobaabo baaboba abob aaboba</p>
-                                    <a class="waves-effect #fbc02d yellow darken-2 btn">Продать душу дьяволу</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m3">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="/11.08.22/images/77b5343e97b33089fd9214c71934095c.jpg">
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                            class="material-icons">favorite</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p class="name">Название:Cyberpunk 2077</p>
-                                    <p class="price">Цена: 2563</p>
-                                    <p class="description">Описание: aboba abob aabobaa bobaabo baaboba abob aaboba </p>
-                                    <a class="waves-effect #fbc02d yellow darken-2 btn">Продать душу дьяволу</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row storage_of_cards">
                     </div>
                 </div>
                 <div class="right-menu col s3">
@@ -133,61 +88,19 @@
                         <div class="card">
                             <div class="card-content">
                                 <h5>Цена</h5>
-                                <input type="text" placeholder="от">
-                                <input type="text" placeholder="до">
-                                <a class="waves-effect #fbc02d yellow darken-2 btn">Сортировка</a>
+                                <input type="text" id="least_cost" placeholder="от">
+                                <input type="text" id="most_cost" placeholder="до">
+                                <a class="waves-effect #fbc02d yellow darken-2 btn" id="sort_by_radius">Сортировка</a>
                                 <h5>Разработчик</h5>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>CD Project RED</span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>Ubisoft</span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>Blizzard</span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>Valve</span>
-                                    </label>
-                                </p>
+                                <div id="additional_filters">
+                                    <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>CD Project RED</span>
+                                        </label>
+                                    </p>
+                                </div>
                                 <a class="waves-effect #fbc02d yellow darken-2 btn">Сортировка</a>
-                                <!-- <h5>Платформа</h5>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>Playstation 5</span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>Playstation 4 </span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>Playstation 3</span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" class="filled-in" />
-                                        <span>PC</span>
-                                    </label>
-                                </p>
-                                <a class="waves-effect #fbc02d yellow darken-2 btn">Сортировка</a> -->
                             </div>
                         </div>
                     </div>
