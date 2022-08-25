@@ -148,7 +148,7 @@ function view_items(data) {
         <div class="col s12 m3">
         <div class="card">
         <div class="card-image">
-            <img src= "/11.08.22/${game.img}">
+            <img src= "/Sorting_project/${game.img}">
             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons"> favorite</i></a>
         </div>
         <div class="card-content">
