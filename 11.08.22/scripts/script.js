@@ -39,7 +39,7 @@ let games = [
         "developer": "Blizzard",
     },
     {
-        "name": "Dead Souls III",
+        "name": "Dark Souls III",
         "description": "boss of the gym",
         "img": "images/ds.jpg",
         "cost": 1500,
@@ -49,11 +49,11 @@ let games = [
     },
 
 ];
+let clear_arr = JSON.parse(JSON.stringify(games));
 function money_transfer() {
     alert("Перевод 300 bucks into the gym on number +79134854677");
 }
 // Изначальный массив игр
-let clear_arr = JSON.parse(JSON.stringify(games));
 document.querySelector("#delete_filters").addEventListener("click", () => {
     view_items(clear_arr);
 });
@@ -72,7 +72,19 @@ function sort_by_name(arr, type) {
     }
     return games;
 };
-
+// Сортировка по разработчику
+function sort_by_dev(devs) {
+    let filtred_games = [];
+    clear_arr.forEach((element) => {
+        for (let i = 0; i < devs.length; i++) {
+            if (element.developer == devs[i]) {
+                filtred_games.push(element);
+            }
+        }
+    });
+    games = filtred_games;
+    view_items(games);
+};
 // Сортировка по цене 
 function sort_by_cost(arr, type) {
     if (type === "up") {
@@ -128,7 +140,6 @@ function sort_by_cost_in_diapozone(arr, most_number, least_number) {
     return games;
 }
 function view_items(data) {
-    let sort_list = [];
     storage_of_cards.innerHTML = "";
     additional_filters.innerHTML = "";
     number_of_elements.innerHTML = "";
@@ -152,7 +163,6 @@ function view_items(data) {
         </div>
         </div>
         `;
-        sort_list.push(game.developer);
     });
     number_of_elements.innerHTML = `
         По вашему запросу найдено: ${data.length} шт.
@@ -163,19 +173,26 @@ function view_items(data) {
             money_transfer();
         });
     }
+    right_sort()
+};
+view_items(games);
+function right_sort() {
+    let sort_list = [];
+    clear_arr.forEach((game) => {
+        sort_list.push(game.developer);
+    })
     sort_list = Array.from(new Set(sort_list));
     for (let i = 0; i < sort_list.length; i++) {
         additional_filters.innerHTML += `
             <p>
                 <label>
-                    <input type="checkbox" class="filled-in"/>
-                    <span>${sort_list[i]}</span>
+                    <input type="checkbox" id="dev_filt" class="filled-in"/>
+                    <span id="dev">${sort_list[i]}</span>
                 </label>
             </p>
         `;
     };
 };
-view_items(games);
 // Алфавит
 document.querySelector("#alphabet_up").addEventListener("click", () => {
     sort_by_name(games, "up");
@@ -215,11 +232,29 @@ document.querySelector("#date_down").addEventListener("click", () => {
 });
 // Диапозон цен
 document.querySelector("#sort_by_radius").addEventListener("click", () => {
-    let min_number = Number(document.querySelector("#least_cost").value);
+    let min_number;
+    if (document.querySelector("#least_cost").value === "") {
+        min_number = 0;
+    } else {
+        min_number = Number(document.querySelector("#least_cost").value);
+    }
     let max_number = Number(document.querySelector("#most_cost").value);
+    console.log(document.querySelector("#least_cost").value);
     if (min_number == 0 && max_number == 0) {
         return;
     } else {
         view_items(sort_by_cost_in_diapozone(games, max_number, min_number));
     }
+});
+// Сортировка по разработчику
+document.querySelector("#sort_by_developer").addEventListener("click", () => {
+    let check_boxes = document.querySelectorAll("#dev_filt");
+    let devs = document.querySelectorAll("#dev");
+    let filt_devs = [];
+    for (i = 0; i < check_boxes.length; i++) {
+        if (check_boxes[i].checked) {
+            filt_devs.push(devs[i].innerHTML);
+        }
+    }
+    sort_by_dev(filt_devs);
 });
