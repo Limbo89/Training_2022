@@ -50,12 +50,50 @@ let games = [
 
 ];
 let clear_arr = JSON.parse(JSON.stringify(games));
+//Пагинация
+let notesOnPage = 4;
+let items = [];
+let pagination = document.querySelector("#pagination");
+let countOfItems = Math.ceil(games.length / notesOnPage);
+// Переход на другую страницу
+function generate_buttons() {
+    pagination.innerHTML = '';
+    items = [];
+    countOfItems = Math.ceil(games.length / notesOnPage);
+    for (let i = 0; i < countOfItems; i++) {
+        let li = document.createElement("li");
+        li.innerHTML = i + 1;
+        pagination.appendChild(li);
+        items.push(li);
+    }
+    for (let item of items) {
+        item.addEventListener("click", function () {
+            showPage(this, games)
+        });
+    }
+}
+generate_buttons();
+showPage(items[0], games);
+function showPage(item, arr) {
+    let active = document.querySelector(".active");
+    if (active) {
+        active.classList.remove('active');
+    }
+    item.classList.add("active");
+    let pageNum = + item.innerHTML;
+    let start = (pageNum - 1) * notesOnPage;
+    let end = start + notesOnPage;
+    let notes = arr.slice(start, end);
+    view_items(notes);
+    generate_buttons();
+}
 function money_transfer() {
     alert("Перевод 300 bucks into the gym on number +79134854677");
 }
 // Изначальный массив игр
 document.querySelector("#delete_filters").addEventListener("click", () => {
-    view_items(clear_arr);
+    games = JSON.parse(JSON.stringify(clear_arr));
+    showPage(items[0], games);
 });
 // Сортировка по алфавиту
 function sort_by_name(arr, type) {
@@ -83,7 +121,7 @@ function sort_by_dev(devs) {
         }
     });
     games = filtred_games;
-    view_items(games);
+    showPage(items[0], games);
 };
 // Сортировка по цене 
 function sort_by_cost(arr, type) {
@@ -165,7 +203,7 @@ function view_items(data) {
         `;
     });
     number_of_elements.innerHTML = `
-        По вашему запросу найдено: ${data.length} шт.
+        По вашему запросу найдено: ${games.length} шт.
     `;
     let free_money = document.querySelectorAll("#transfer");
     for (i = 0; i < free_money.length; i++) {
@@ -175,7 +213,6 @@ function view_items(data) {
     }
     right_sort()
 };
-view_items(games);
 function right_sort() {
     let sort_list = [];
     clear_arr.forEach((game) => {
@@ -196,39 +233,39 @@ function right_sort() {
 // Алфавит
 document.querySelector("#alphabet_up").addEventListener("click", () => {
     sort_by_name(games, "up");
-    view_items(games);
+    showPage(items[0], games);
 });
 document.querySelector("#alphabet_down").addEventListener("click", () => {
     sort_by_name(games, "down");
-    view_items(games);
+    showPage(items[0], games);
 });
 
 // Популярность
 document.querySelector("#popular_up").addEventListener("click", () => {
     sort_by_favorite(games, "up");
-    view_items(games);
+    showPage(items[0], games);
 });
 document.querySelector("#popular_down").addEventListener("click", () => {
     sort_by_favorite(games, "down");
-    view_items(games);
+    showPage(items[0], games);
 });
 // Цена
 document.querySelector("#cost_up").addEventListener("click", () => {
     sort_by_cost(games, "up");
-    view_items(games);
+    showPage(items[0], games);
 });
 document.querySelector("#cost_down").addEventListener("click", () => {
     sort_by_cost(games, "down");
-    view_items(games);
+    showPage(items[0], games);
 });
 // Дата
 document.querySelector("#date_up").addEventListener("click", () => {
     sort_by_date(games, "up");
-    view_items(games);
+    showPage(items[0], games);
 });
 document.querySelector("#date_down").addEventListener("click", () => {
     sort_by_date(games, "down");
-    view_items(games);
+    showPage(items[0], games);
 });
 // Диапозон цен
 document.querySelector("#sort_by_radius").addEventListener("click", () => {
@@ -243,7 +280,7 @@ document.querySelector("#sort_by_radius").addEventListener("click", () => {
     if (min_number == 0 && max_number == 0) {
         return;
     } else {
-        view_items(sort_by_cost_in_diapozone(games, max_number, min_number));
+        showPage(items[0], sort_by_cost_in_diapozone(games, max_number, min_number));
     }
 });
 // Сортировка по разработчику

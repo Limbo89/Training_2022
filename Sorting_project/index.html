@@ -48,8 +48,31 @@
             width: 295px;
             height: 400px;
         }
-        i{
+
+        i {
             cursor: pointer;
+        }
+
+        #pagination {
+            display: flex;
+        }
+
+        #pagination>li {
+            border: 2px black solid;
+            padding: 10px;
+            font-size: 20px;
+            background-color: white;
+            margin: 10px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .active {
+            color: red;
+            border: 2px red solid;
         }
     </style>
 </head>
@@ -94,11 +117,16 @@
                                 <h5>Разработчик</h5>
                                 <div id="additional_filters">
                                 </div>
-                                <a class="waves-effect #fbc02d yellow darken-2 btn" id="sort_by_developer">Сортировка</a>
+                                <a class="waves-effect #fbc02d yellow darken-2 btn"
+                                    id="sort_by_developer">Сортировка</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="container">
+                <ul id="pagination">
+                </ul>
             </div>
     </div>
 </body>
