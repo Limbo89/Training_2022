@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(223, 223, 223);
+}
+
+.menu {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.menu>li {
+    margin-right: 30px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.menu>li:first-child {
+    margin-left: 20px;
+}
+
+.name {
+    font-size: 20px;
+}
+
+.price {
+    font-size: 20px;
+    color: red;
+}
+
+.card-image>img {
+    width: 295px;
+    height: 400px;
+}
+
+i {
+    cursor: pointer;
+}
+
+#pagination {
+    display: flex;
+}
+
+#pagination>li {
+    border: 2px black solid;
+    padding: 10px;
+    font-size: 20px;
+    background-color: white;
+    margin: 10px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* .active {
+    color: red;
+    border: 2px red solid;
+} */

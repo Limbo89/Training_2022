@@ -75,11 +75,11 @@ function generate_buttons() {
 generate_buttons();
 showPage(items[0], games);
 function showPage(item, arr) {
-    let active = document.querySelector(".active");
-    if (active) {
-        active.classList.remove('active');
-    }
-    item.classList.add("active");
+    // let active = document.querySelector(".active");
+    // if (active) {
+    //     active.classList.remove('active');
+    // }
+    // item.classList.add("active");
     let pageNum = + item.innerHTML;
     let start = (pageNum - 1) * notesOnPage;
     let end = start + notesOnPage;
