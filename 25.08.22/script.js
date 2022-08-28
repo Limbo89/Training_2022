@@ -1,22 +1,9 @@
-// У нас есть объект:
+// 1 задание
 
-let user = {
-    name: "John",
-    years: 30
-};
-
-// Напишите деструктурирующее присваивание, которое:
-
-//     свойство name присвоит в переменную name.
-//     свойство years присвоит в переменную age.
-//     свойство isAdmin присвоит в переменную isAdmin (false, если нет такого свойства)
-
-// Пример переменных после вашего присваивания:
-
-// let user = { name: "John", years: 30 };
-
-// ваш код должен быть с левой стороны:
-// ... = user
+// let user = {
+//     name: "John",
+//     years: 30
+// };
 
 // function aboba() {
 //     let [isAdmin, age = user.years, name = user.name] = ["false"]
@@ -26,8 +13,7 @@ let user = {
 // }
 // aboba()
 
-// У нас есть объект salaries с зарплатами:
-
+// 2 задание
 // let salaries = {
 //   "John": 100,
 //   "Pete": 300,
@@ -49,22 +35,84 @@ let user = {
 //     }
 // }
 // console.log(topSalary(salaries));
-// Создайте функцию topSalary(salaries), которая возвращает имя самого высокооплачиваемого сотрудника.
+// 3 задание
+// function unzip(arr) {
+//     let result = [];
+//     let strings = [];
+//     let numbers = [];
+//     let booleans = [];
+//     for (item of arr) {
+//         for (elem of item) {
+//             if (typeof elem === "string"){
+//                 strings.push(elem);
+//             }
+//             else if (typeof elem === "number"){
+//                 numbers.push(elem);
+//             }
+//             else if (typeof elem === "boolean"){
+//                 booleans.push(elem);
+//             }
+//         }
+//     }
+//     result.push(strings, numbers, booleans);
+//     return result;
+// }
+// console.log(unzip([['a', 1, true], ['b', 2, false]]));
+// console.log(unzip([['a', 1, true], ['b', 2]]));
 
-//     Если объект salaries пустой, то нужно вернуть null.
-//     Если несколько высокооплачиваемых сотрудников, можно вернуть любого из них.
-
-// P.S. Используйте Object.entries и деструктурирование, чтобы перебрать пары ключ/значение.
-
-// Напишите функцию JavaScript для создания массива массивов, разгруппировав элементы в массиве, созданном zip
-
-// Test Data :
-unzip([['a', 1, true], ['b', 2, false]])
-// unzip([['a', 1, true], ['b', 2]])
-// Expected Output:
-function unzip(arr){
-    let data = [];
-    for(let i = 0; i<arr.length; i++){
-        arrs.push(arr[i]);
+// 4 задание
+function encodingMorse(text) {
+    let result = [];
+    let morse = {
+        "A": ".-",
+        "B": "-...",
+        "C": "-.-.",
+        "D": "-..",
+        "E": ".",
+        "F": "..-.",
+        "G": "--.",
+        "H": "....",
+        "I": "..",
+        "J": ".---",
+        "K": "-.-",
+        "L": ".-..",
+        "M": "--",
+        "N": "-.",
+        "O": "---",
+        "P": ".--.",
+        "Q": "--.-",
+        "R": ".-.",
+        "S": "...",
+        "T": "-",
+        "U": "..-",
+        "V": "...-",
+        "W": ".--",
+        "X": "-..-",
+        "Y": "-.--",
+        "Z": "--..",
+        "0": "-----",
+        "1": ".----",
+        "2": "..---",
+        "3": "...--",
+        "4": "....-",
+        "5": ".....",
+        "6": "-....",
+        "7": "--...",
+        "8": "---..",
+        "9": "----.",
+        ",": '--..--',
+        '!': '-.-.--',
     }
+    let symbols = [];
+    let words = text.toUpperCase().split(" ");
+    for (let word of words){
+        symbols.push(word.split(""));
+    }
+    for (let arr_of_symbols of symbols){
+        for (let symbol of arr_of_symbols) {
+            result.push(morse[symbol]);
+        }
+    }
+    return result.join(" ");;
 }
+console.log(encodingMorse("Hello, world!!"));
