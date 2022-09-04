@@ -1,15 +1,13 @@
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d'); // контекст выполнения
-
-function line(posStart=[0,0], length=100) {
-    // let [x, y] = posStart;
-    // ctx.beginPath();
-    // ctx.moveTo(x, y);
-    // ctx.lineTo(x+length, y);
-    // ctx.stroke();
-}
-// line()
-
+import * as myModule from "./module.js"
+let data = [20, 10, 10, 39, 34, 93, 54, 10, 39, 34, 93, 34, 93, 20, 10, 70, 60, 42, 54, 10, 49, 10, 39, 100, 93];
+myModule.drawGraph(myModule.sliceData(data, 10));
+// function line(posStart=[0,0], length=100) {
+//     let [x, y] = posStart;
+//     ctx.beginPath();
+//     ctx.moveTo(x, y);
+//     ctx.lineTo(200, 100);
+//     ctx.stroke();
+// }
 // function triangle(A=[0,0], B=[100, 0], C=[50,50]) {
 //     ctx.beginPath();
 //     ctx.moveTo(A[0], A[1]);
