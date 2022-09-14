@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +12,51 @@
             width: 100px;
             height: 100px;
         }
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .left,
+        .right {
+            width: 300px;
+        }
+        .headerImage>img{
+            width: 100%;
+            height: 100%;
+        }
+        .headerImage {
+            width: 200px;
+            height: 20px;
+        }
     </style>
 </head>
+
 <body>
-    <input type="text" id="name" placeholder="имя юзера">
-    <input type="number" id="age" placeholder="возвраст">
-    <input type="file" id="avatar" placeholder="аватарка (есть и по умолчанию)">
-    <button id="create_user" >Создать пользователя</button>
+    <div class="container">
+        <div class="left">
+            <label for="">name</label> <br>
+            <input type="text" id="name" placeholder="имя юзера"> <br> <br>
+            <label for="">age</label> <br>
+            <input type="number" id="age" placeholder="возвраст"> <br> <br>
+            <label for="">colorName</label> <br>
+            <input type="text" id="colorName" placeholder="цвет имеи"> <br> <br>
+
+        </div>
+        <div class="right">
+            <label for="">colorAge</label> <br>
+            <input type="text" id="colorAge" placeholder="цвет возвраста"> <br> <br>
+            <label for="">headerImage</label><br>
+            <input type="file" id="headerImage" placeholder="картинка в шапке"> <br> <br>
+            <label for="">avatar</label><br>
+            <input type="file" id="avatar" placeholder="аватарка (есть и по умолчанию)"> <br> <br>
+        </div>
+    </div>
+    <button id="create_user">Создать пользователя</button> <br> <br>
     <div class="card">
     </div>
     <button class="view_user"> Отрисовать карточку пользователя</button>
 </body>
+
 </html>

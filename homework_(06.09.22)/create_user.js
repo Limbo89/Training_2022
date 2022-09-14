@@ -1,15 +1,15 @@
-function user(name_,age_,img_,){
+function user(name_, age_, img_,) {
     this.name = name_;
     this.age = age_;
-    if (img_ === undefined ) {
-        this.img = "./images/default.png";
-    } else  {
+    if (img_ === undefined) {
+        this.img = "./images/i.jpeg";
+    } else {
         this.img = "./images/" + img_;
     }
     this.card = {
-        colorName:"",
-        colorAge:"",
-        headerImage:"",
+        colorName: "black",
+        colorAge: "black",
+        headerImage: "./images/default.jpg",
     };
     this.get_headerImage = function () {
         return this.card.headerImage;
@@ -41,8 +41,9 @@ function user(name_,age_,img_,){
     this.view = function (div) {
         div.innerHTML = '';
         div.innerHTML = `
-        Имя: ${this.name} <br>
-        Возвраст: ${this.age} <br>
+        <div class="headerImage"> <img src="${this.card.headerImage}" alt=""> </div>
+        Имя: <span style="color: ${this.card.colorName};""> ${this.name}</span> <br>
+        Возвраст: <span style="color: ${this.card.colorAge};"">${this.age}</span> <br>
         Аватарка: <img src="${this.img}" alt="ухупс"> <br>
         `
     }
