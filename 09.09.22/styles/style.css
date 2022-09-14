@@ -1,0 +1,121 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+.container {
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+.header {
+    background: rgba(255, 216, 157, 0.55);
+    width: 100%;
+    height: 115px;
+}
+
+.title {
+    color: #FFAA2C;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 32.5px 0px;
+}
+
+.complete_task,
+.current_task {
+    margin-top: 40px;
+}
+
+.task_title {
+    margin: 20px 0px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.task_container {
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 20px;
+    display: flex;
+    min-height: 235px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.create_task>img{
+    width: 30%;
+    height: 30%;
+    margin-top: 75px;
+    margin-left: 100px;
+}
+.create_task {
+    flex: 21% 0 0;
+    height: 215px;
+    margin: 20px;
+    background-color: rgba(255, 224, 194, 0.38);
+    border-radius: 20px;
+    border: #FFAA2C dotted 5px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.task {
+    flex: 21% 0 0;
+    height: 215px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: #FFAA2C solid 2px;
+    padding: 15px;
+    position: relative;
+}
+
+.taskname {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.tasktext {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.tick>img,
+.cross>img {
+    width: 100%;
+    height: 100%;
+}
+
+.tick,
+.cross {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.tick {
+    bottom: 25px;
+    right: 25px;
+}
+
+.cross {
+    top: 25px;
+    right: 25px;
+}

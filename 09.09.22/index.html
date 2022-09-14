@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
     <script src="./script.js" type="module" defer></script>
 </head>
+
 <body>
-    <div id="ball" style="width: 100px; height: 100px;background-color: yellowgreen; "></div>
+    <!-- <div id="ball" style="width: 100px; height: 100px;background-color: yellowgreen; "></div>
     <div id="ball" style="width: 100px; height: 100px;background-color: red; "></div>
     <div id="ball" style="width: 100px; height: 100px;background-color: yellow; "></div>
     <div id="ball" style="width: 100px; height: 100px;background-color: blue; "></div>
-    <div id="ball" style="width: 100px; height: 100px;background-color: purple; "></div>
+    <div id="ball" style="width: 100px; height: 100px;background-color: purple; "></div> -->
+    <div class="header">
+        <div class="container">
+            <h1 class="title">Taskboard</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="current_task">
+            <h2 class="task_title">Current task</h2>
+            <div class="task_container">
+                <div class="create_task">
+                    <img src="./images/pngegg.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="complete_task">
+            <h2 class="task_title">Complete task</h2>
+            <div class="task_container">
+                <div class="task">
+                    <span class="taskname">Taskname</span> <br> <br>
+                    <span class="tasktext">Tasktext</span>
+                    <div class="cross">
+                        <img src="./images/Group_2.png" alt="">
+                    </div>
+                    <div class="tick">
+                        <img src="./images/Vector_5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
