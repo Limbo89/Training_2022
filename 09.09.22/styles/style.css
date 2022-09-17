@@ -52,14 +52,25 @@ body {
     align-items: center;
 }
 
-.create_task>img{
-    width: 30%;
-    height: 30%;
-    margin-top: 75px;
-    margin-left: 100px;
+.plus {
+    position: relative;
+    border: 1px dotted white;
+    width: 3px;
+    height: 3px;
+    background-color: black;
+    box-sizing: border-box;
+    transform: scale(11);
 }
+
+.create_task>img {
+    width: 70px;
+    height: 70px;
+    margin-top: 75px;
+    margin-left: 38%;
+}
+
 .create_task {
-    flex: 21% 0 0;
+    flex: 20% 0 0;
     height: 215px;
     margin: 20px;
     background-color: rgba(255, 224, 194, 0.38);
@@ -70,7 +81,7 @@ body {
 }
 
 .task {
-    flex: 21% 0 0;
+    flex: 20% 0 0;
     height: 215px;
     margin: 20px;
     background-color: white;
@@ -79,7 +90,9 @@ body {
     padding: 15px;
     position: relative;
 }
-
+.complete>.task>.tick{
+    display: none;
+}
 .taskname {
     font-size: 20px;
     font-weight: 700;
@@ -118,4 +131,60 @@ body {
 .cross {
     top: 25px;
     right: 25px;
+}
+
+.popUp {
+    height: 1000px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    visibility: hidden;
+}
+.active {
+    z-index: 99;
+    visibility: visible;
+}
+.popUp_content {
+    background-color: #fff;
+    width: 380px;
+    margin: 0 auto;
+    margin-top: 240px;
+    border-radius: 10px;
+    padding: 40px;
+    border: solid #FFAA2C 2px;
+    position: relative;
+}
+
+.popUp_button {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 26px;
+    background: #FF8E25;
+    border: 1px solid #FA9C10;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.popUp_input{
+    width: 356px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 100px;
+    border: solid #FFAA2C 2px;
+}
+.popUp_input:active{
+    border: solid #FFAA2C 2px;
+}
+textarea {
+	overflow: auto;
+	resize: none;
+    font-size: 18px;
+    width: 336px;
+	height: 200px;
+    border: solid #FFAA2C 2px;
+	border-radius: 8px;
+	padding: 20px;
 }

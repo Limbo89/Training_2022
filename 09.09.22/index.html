@@ -21,10 +21,19 @@
             <h1 class="title">Taskboard</h1>
         </div>
     </div>
+    <div class="popUp">
+        <div class="popUp_content">
+            <div class="cross close_popUp"><img src="./images/Group_2.png" alt=""></div>
+            <span class="task_title">New task</span> <br><br>
+            <input class="popUp_input lable" type="text" placeholder="Введите название"> <br> <br>
+            <textarea class="description"></textarea><br> <br> <br>
+            <button class="popUp_button">Create</button>
+        </div>
+    </div>
     <div class="container">
         <div class="current_task">
             <h2 class="task_title">Current task</h2>
-            <div class="task_container">
+            <div class="task_container current">
                 <div class="create_task">
                     <img src="./images/pngegg.png" alt="">
                 </div>
@@ -32,8 +41,8 @@
         </div>
         <div class="complete_task">
             <h2 class="task_title">Complete task</h2>
-            <div class="task_container">
-                <div class="task">
+            <div class="task_container complete">
+                <!-- <div class="task">
                     <span class="taskname">Taskname</span> <br> <br>
                     <span class="tasktext">Tasktext</span>
                     <div class="cross">
@@ -42,7 +51,7 @@
                     <div class="tick">
                         <img src="./images/Vector_5.png" alt="">
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
