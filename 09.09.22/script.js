@@ -26,7 +26,7 @@ function renderPage() {
     for (let task of tasks){
         // drag_module.drag(task)
         task.addEventListener("mousedown", ()=>{
-            drag_module.drag(task);
+            drag_module.drag_start(task, cards);
         });
     }
 }
@@ -52,7 +52,7 @@ function addEvent(crosses, ticks) {
 
 }
 document.querySelector(".close_popUp").addEventListener("click", (e) => {
-    // console.log(e.target.parentNode);
     popUp.classList.toggle('active');
 });
 renderPage()
+export { renderPage }

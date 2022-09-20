@@ -7,7 +7,7 @@ function Card(title_, description_, status_) {
         status: status_,
     }
     this.create = `
-    <div class="task">
+    <div class="task" draggable="true">
         <span class="taskname">${this.properties.title}</span> <br> <br>
         <span class="tasktext">${this.properties.description}</span>
         <div class="cross">
@@ -53,6 +53,13 @@ function TaskCards() {
         this.cards.forEach(function (card) {
             if (id == card.id) {
                 card.properties.status = true;
+            }
+        })
+    }
+    this.uncomplete_card = (id) => {
+        this.cards.forEach(function (card) {
+            if (id == card.id) {
+                card.properties.status = false;
             }
         })
     }
