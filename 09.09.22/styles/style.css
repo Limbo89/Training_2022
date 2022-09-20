@@ -79,7 +79,9 @@ body {
     padding: 15px;
     cursor: pointer;
 }
-
+.id{
+    display: none;
+}
 .task {
     flex: 20% 0 0;
     height: 215px;
@@ -110,13 +112,15 @@ body {
 }
 
 .tick>img,
-.cross>img {
+.cross>img,
+.cross_pop  {
     width: 100%;
     height: 100%;
 }
 
 .tick,
-.cross {
+.cross,
+.cross_pop {
     position: absolute;
     width: 17px;
     height: 17px;
@@ -128,7 +132,8 @@ body {
     right: 25px;
 }
 
-.cross {
+.cross,
+.cross_pop  {
     top: 25px;
     right: 25px;
 }
