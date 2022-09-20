@@ -20,7 +20,7 @@ function drag(event){
     current_task_id = Number(event.target.children[5].value);
 }
 div_complete_tasks.ondrop = drop_done;
-div_current_tasks.ondragover = drop_curr;
+div_current_tasks.ondrop = drop_curr;
 
 function drop_curr() {
     cards.uncomplete_card(current_task_id);
