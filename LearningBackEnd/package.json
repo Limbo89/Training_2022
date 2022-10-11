@@ -5,10 +5,10 @@
   "main": "app.js",
   "author": "Limbo89",
   "license": "ISC",
-
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
-    "dotenv": "^16.0.3"
+    "nunjucks": "^3.2.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
