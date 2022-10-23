@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Блоги пользователя</title>
+    </head>
+
+    <body>
+        <a href="/myBlog">myBlog</a>
+        <a href="/login">login</a>
+        <a href="/registration">registration</a>
+        <a href="/blog">blog</a>
+        {% for blog in blogs %}
+        Название:{{ blog.title }} <br>
+        Описание:{{ blog.description }} <br>
+        Автор: {{ blog.author }}
+        <hr>
+        {% endfor %}
+        <form action="/blog/create_blog" method="POST">
+            <input name="title" type="text" placeholder="введите название">
+            <input name="description" type="text" placeholder="введите описание">
+            <button type="submit" >создать</button>
+        </form>
+    </body>
+
+</html>

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Все блоги</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Все блоги</title>
+    </head>
 
-<body>
-
-    {% for blog in blogs %}
-        Название:{{ blog.name }} <br>
-        Описание:{{ blog.description }} <br>
-        Дата создание: {{ blog.date }}
-        <hr>
-    {% endfor %}
-
-</body>
+    <body>
+        <a href="/myBlog">myBlog</a>
+        <a href="/login">login</a>
+        <a href="/registration">registration</a>
+        <a href="/blog">blog</a>
+        {% for blog in blogs %}
+        Название:{{ blog.title }}
+            <br>
+        Описание:{{ blog.description }}
+            <br>
+        Автор: {{ blog.author }}
+            <hr>
+        {% endfor %}    
+    </body>
 
 </html>

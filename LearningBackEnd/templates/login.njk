@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Вход</title>
+        <style>
+            .red{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/myBlog">myBlog</a>
+        <a href="/login">login</a>
+        <a href="/registration">registration</a>
+        <a href="/blog">blog</a>
+        <h1>Авторизация</h1>
+        <form action="/user/auth" method="post">
+            <input name="login" type="text" placeholder="Введите ваш логин">
+            <input name="password" type="password" placeholder="Введите ваш пароль">
+            <button type="submit">Войти</button>
+        </form>
+        <p class='red'>{{ status }}</p>
+    </body>
+</html>
