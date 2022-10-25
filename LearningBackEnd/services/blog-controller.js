@@ -28,6 +28,28 @@ class BlogController {
             }
         });
     }
+    async deleteBlog(req, res) {
+        Blog.deleteOne({ _id: req.params.id }, (err) => {
+            if (!err) {
+                res.redirect('/myBlog');
+                console.log("Успешное удаление!");
+            } else {
+                console.log(err);
+            }
+        });
+    }
+    async updateBlog(req, res) {
+        console.log(req.body.title, req.body.description, req.body.id);
+        Blog.updateOne({ _id: req.body.id }, { title: req.body.title, description: req.body.description }, (err) => {
+            if (!err) {
+                res.redirect('/myBlog');
+                console.log("Успешное обновление!");
+
+            } else {
+                console.log(err);
+            }
+        });
+    }
     async userBlogs(req, res) {
         Blog.find({}, function (err, allBlogs) {
             let currentBlogs = [];
@@ -36,7 +58,7 @@ class BlogController {
                     currentBlogs.push(blog);
                 }
             });
-            res.render("userBlogs.njk", {blogs: currentBlogs});
+            res.render("userBlogs.njk", { blogs: currentBlogs });
         });
     }
 }

@@ -12,13 +12,23 @@
         <a href="/myBlog">myBlog</a>
         <a href="/login">login</a>
         <a href="/registration">registration</a>
-        <a href="/blog">blog</a>
+        <a href="/blog">blog</a><br>
         {% for blog in blogs %}
-        Название:{{ blog.title }} <br>
+        <hr>
+        <h2>Название:{{ blog.title }}</h2> <br>
         Описание:{{ blog.description }} <br>
         Автор: {{ blog.author }}
+        <h3>Изменение блога</h3>
+        <form action="/blog/update" method="POST">
+            <input name="id" type="hidden" value="{{blog.id}}">
+            <input placeholder="введите название" type="text" name="title">
+            <input placeholder="введите описание" type="text" name="description">
+            <button type="submit">Изменить</button>
+        </form>
+        <a href="/blog/delete/{{blog.id }}">Удалить блог</a><br>
         <hr>
         {% endfor %}
+        <h1>Создать блог</h1>
         <form action="/blog/create_blog" method="POST">
             <input name="title" type="text" placeholder="введите название">
             <input name="description" type="text" placeholder="введите описание">
