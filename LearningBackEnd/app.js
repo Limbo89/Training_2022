@@ -6,7 +6,12 @@ const express = require('express'),
     session = require('express-session'),
     MyBlog = require('./routes/myBlog'),
     PORT = 3000,
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    cookieParser = require('cookie-parser'),
+    oneDay = 1000 * 60 * 60 * 24,
+    redisStore = require('connect-redis'),
+    redis = require('redis'),
+    client = redis.createClient();
 
 njk.configure('templates', {
     autoescape: true,
@@ -18,11 +23,28 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
         secret: 'you secret key',
-        resave: true,
+        store: new redisStore({
+            host: 'localhost',
+            port: 6379,
+            client: client
+        }),
         saveUninitialized: true,
+        cookie: {
+            maxAge: oneDay
+        },
+        resave: false,
     })
 );
 
+app.use(cookieParser());
+app.use((req, res, next) => {
+    let unauth = ['/'];
+    if (unauth.inclubes(req.url)) {
+        next();
+    } else {
+        res.send('Вы не авторизованы');
+    }
+});
 app.use("/blog", Blog);
 app.use("/registration", (req, res) => {
     res.render("registration.njk");
@@ -32,7 +54,6 @@ app.use("/login", (req, res) => {
 });
 app.use("/user", User);
 app.use("/myBlog", MyBlog);
-
 app.get("/", (req, res) => {
     res.send("Главная страница<br><a href='/myBlog'>myBlog</a><br><a href='/login'>login</a><br><a href='/registration'>registration</a><br><a href='blog'>blog</a>");
 });
@@ -41,7 +62,7 @@ app.use((req, res) => {
 });
 
 mongoose.connect("mongodb://localhost:27017/userbd", { useUnifiedTopology: true }, (err) => {
-    if (!err){
+    if (!err) {
         app.listen(PORT, (err) => {
             if (err) {
                 console.log(err);

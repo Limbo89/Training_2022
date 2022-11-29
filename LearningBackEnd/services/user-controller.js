@@ -6,7 +6,7 @@ class UserController {
     constructor() {
     }
     async logout(req, res) {
-        delete session.user;
+        delete req.session.user;
         res.redirect("/login");
     }
     async getAllUsers(req, res) {
@@ -24,13 +24,13 @@ class UserController {
         User.find({}, function (err, allUsers) {
             allUsers.forEach(user => {
                 if (req.body.login == user.name && req.body.password == user.password) {
-                    session.user = {
+                    req.session.user = {
                         name: user.name,
                         auth: true,
                     }
                 }
             });
-            if (session.user) {
+            if (req.session.user) {
                 res.redirect("/myBlog");
             } else {
                 res.render("login.njk", { status: "Такого пользователя нет!" });

@@ -23,7 +23,6 @@ class User {
     async userReg(req, res) {
         UserController.addUser(req, res);
     }
-
     async userLogin(req, res) {
         UserController.userLogin(req, res);
     }
