@@ -9,9 +9,11 @@ const express = require('express'),
     mongoose = require('mongoose'),
     cookieParser = require('cookie-parser'),
     oneDay = 1000 * 60 * 60 * 24,
-    redisStore = require('connect-redis'),
+    redisStore = require('connect-redis')(session),
     redis = require('redis'),
-    client = redis.createClient();
+    client = redis.createClient({
+        legacyMode: true
+    });
 
 njk.configure('templates', {
     autoescape: true,
@@ -24,9 +26,10 @@ app.use(
     session({
         secret: 'you secret key',
         store: new redisStore({
-            host: 'localhost',
+            host: '127.0.0.1',
             port: 6379,
-            client: client
+            client: client,
+            ttl: 260
         }),
         saveUninitialized: true,
         cookie: {
@@ -38,12 +41,19 @@ app.use(
 
 app.use(cookieParser());
 app.use((req, res, next) => {
-    let unauth = ['/'];
-    if (unauth.inclubes(req.url)) {
-        next();
-    } else {
-        res.send('Вы не авторизованы');
-    }
+    // let unauth = ['/', '/blog']
+    // let session = req.session;
+    // if (!unauth.includes(req.url) && session.user) {
+    //     next()
+    // } else if (unauth.includes(req.url)) {
+    //     next()
+    // }    
+    // else {
+    //     res.send("Вы не авторизованы")
+    // }
+    // next(); 
+    console.log(req.url);
+    next();
 });
 app.use("/blog", Blog);
 app.use("/registration", (req, res) => {
@@ -55,6 +65,8 @@ app.use("/login", (req, res) => {
 app.use("/user", User);
 app.use("/myBlog", MyBlog);
 app.get("/", (req, res) => {
+    const sess = req.session;
+    console.log(sess);
     res.send("Главная страница<br><a href='/myBlog'>myBlog</a><br><a href='/login'>login</a><br><a href='/registration'>registration</a><br><a href='blog'>blog</a>");
 });
 app.use((req, res) => {
@@ -63,6 +75,7 @@ app.use((req, res) => {
 
 mongoose.connect("mongodb://localhost:27017/userbd", { useUnifiedTopology: true }, (err) => {
     if (!err) {
+        client.connect();
         app.listen(PORT, (err) => {
             if (err) {
                 console.log(err);

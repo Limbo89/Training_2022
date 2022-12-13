@@ -1,6 +1,8 @@
 const { render } = require("nunjucks");
 const User = require("../models/user-model");
 const session = require('express-session');
+const jwt = require("jsonwebtoken");
+const tokenKey = '1a2b-3c4d-5e6f-7g8h';
 
 class UserController {
     constructor() {
@@ -24,10 +26,11 @@ class UserController {
         User.find({}, function (err, allUsers) {
             allUsers.forEach(user => {
                 if (req.body.login == user.name && req.body.password == user.password) {
-                    req.session.user = {
-                        name: user.name,
-                        auth: true,
-                    }
+                    // req.session.user = {
+                    //     name: user.name,
+                    //     auth: true,
+                    // }
+
                 }
             });
             if (req.session.user) {
